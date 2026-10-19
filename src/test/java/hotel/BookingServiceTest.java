@@ -93,4 +93,19 @@ class BookingServiceTest {
         assertFalse(resultInverted, "Бронирование с startDate > endDate должно возвращать false");
         assertFalse(resultNull, "Бронирование с null датой должно возвращать false");
     }
+    @Test
+    @DisplayName("Тест 6: Повторное успешное бронирование номера после отмены предыдущей брони")
+    void testBookingAfterCancellation() {
+        Date startDate = createDate(2026, 10, 1);
+        Date endDate = createDate(2026, 10, 5);
+
+        boolean firstBooking = bookingService.book(1, 101, startDate, endDate);
+        assertTrue(firstBooking, "Первичное бронирование должно пройти успешно");
+
+        boolean unbooked = bookingService.unBook(1, 101);
+        assertTrue(unbooked, "Отмена бронирования должна пройти успешно");
+
+        boolean secondBooking = bookingService.book(2, 101, startDate, endDate);
+        assertTrue(secondBooking, "После отмены бронирования номер должен быть доступен для нового гостя");
+    }
 }
