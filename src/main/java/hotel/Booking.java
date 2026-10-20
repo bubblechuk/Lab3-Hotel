@@ -34,4 +34,5 @@ public class Booking {
         return startDate;
     }
     public void prikol() {}
+    public void prikol2() {}
 }
