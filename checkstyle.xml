@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+"-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+"https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="error"/>
+    <property name="fileExtensions" value="java, properties, xml"/>
+
+    <!-- 1. Проверка структуры файлов -->
+    <!-- Запрет символов табуляции: отступы должны быть только пробелами -->
+    <module name="FileTabCharacter">
+        <property name="eachLine" value="true"/>
+    </module>
+
+    <!-- Ограничение длины строки: максимум 120 символов -->
+    <module name="LineLength">
+        <property name="fileExtensions" value="java"/>
+        <property name="max" value="120"/>
+        <property name="ignorePattern" value="^package .*;|^import .*;"/>
+    </module>
+
+    <module name="TreeWalker">
+        <!-- 2. Именование (Naming Conventions) -->
+        <!-- Имена пакетов: только строчные латинские буквы и цифры -->
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
+        </module>
+
+        <!-- Имена классов и интерфейсов: UpperCamelCase -->
+        <module name="TypeName">
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- Имена методов: lowerCamelCase -->
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- Имена локальных переменных и параметров: lowerCamelCase -->
+        <module name="LocalVariableName"/>
+        <module name="ParameterName"/>
+
+        <!-- Константы (static final): UPPER_SNAKE_CASE -->
+        <module name="ConstantName"/>
+
+        <!-- 3. Импорты (Imports) -->
+        <!-- Запрет импортов через звездочку (import java.util.*) -->
+        <module name="AvoidStarImport"/>
+        <!-- Удаление неиспользуемых импортов -->
+        <module name="UnusedImports"/>
+        <!-- Запрет дублирующих и избыточных импортов (например, java.lang.*) -->
+        <module name="RedundantImport"/>
+
+        <!-- 4. Оформление блоков и скобок (Blocks & Braces) -->
+        <!-- Обязательное наличие фигурных скобок даже для однострочных if, else, for, while -->
+        <module name="NeedBraces"/>
+        <!-- Позиция открывающей скобки: египетский стиль (в конце строки) -->
+        <module name="LeftCurly"/>
+        <!-- Позиция закрывающей скобки для else, catch, finally (на той же строке) -->
+        <module name="RightCurly"/>
+        <!-- Запрет пустых блоков кода без комментариев -->
+        <module name="EmptyBlock"/>
+
+        <!-- 5. Пробелы и отступы (Whitespace) -->
+        <!-- Пробелы вокруг операторов (+, -, =, ==, && и т.д.) -->
+        <module name="WhitespaceAround"/>
+        <!-- Пробелы после запятых, точек с запятой, приведения типов -->
+        <module name="WhitespaceAfter"/>
+        <!-- Запрет лишних пробелов перед скобками вызова методов -->
+        <module name="MethodParamPad"/>
+
+        <!-- 6. Качество кода (Coding Practices) -->
+        <!-- Проверка порядка модификаторов: public static final, а не final static public -->
+        <module name="ModifierOrder"/>
+        <!-- Ограничение на количество параметров метода (не более 7) -->
+        <module name="ParameterNumber">
+            <property name="max" value="7"/>
+        </module>
+        <!-- Наличие default-ветки в switch-выражениях -->
+        <module name="MissingSwitchDefault"/>
+        <!-- Запрет сравнения строк через == вместо equals -->
+        <module name="StringLiteralEquality"/>
+    </module>
+</module>

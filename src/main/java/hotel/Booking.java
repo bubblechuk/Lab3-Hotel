@@ -9,8 +9,7 @@ public class Booking {
     public Date startDate;
     public Date endDate;
     public Integer guestId;
-    public Booking(Integer guestId, Integer roomId, Date startDate, Date endDate)
-    {
+    public Booking(Integer guestId, Integer roomId, Date startDate, Date endDate) {
         Id = counter++;
         this.guestId = guestId;
         this.roomId = roomId;
@@ -33,6 +32,8 @@ public class Booking {
     public Date getStartDate() {
         return startDate;
     }
-    public void prikol() {}
-    public void prikol2() {}
+    public void prikol() {
+    }
+    public void prikol2() {
+    }
 }
