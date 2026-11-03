@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 
 public class BookingService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BookingService.class);
+    private static final Logger _logger = LoggerFactory.getLogger(BookingService.class);
 
     private final IBookingRepository bookingRepository;
 
