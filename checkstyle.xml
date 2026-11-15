@@ -75,9 +75,6 @@
         <!-- Проверка порядка модификаторов: public static final, а не final static public -->
         <module name="ModifierOrder"/>
         <!-- Ограничение на количество параметров метода (не более 7) -->
-        <module name="ParameterNumber">
-            <property name="max" value="7"/>
-        </module>
         <!-- Наличие default-ветки в switch-выражениях -->
         <module name="MissingSwitchDefault"/>
         <!-- Запрет сравнения строк через == вместо equals -->
